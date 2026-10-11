@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 400">
+  <title>Henry's infrastructure and music workbench</title>
+  <g fill="none" stroke="#52624b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M55 310c86 4 237 2 333-2" stroke="#aaa693"/>
+    <path d="M77 99c-16 2-24-12-18-25 4-9 14-12 23-9 2-23 28-35 47-22 12-14 36-12 44 5 25-9 42 13 33 30-3 8-11 12-21 13z" fill="#e7ebdc"/>
+    <path d="M129 99v35m-52 0h116m-116 0v25m58-25v25m58-25v25" stroke-dasharray="3 5"/>
+    <rect x="52" y="160" width="153" height="95" rx="7" fill="#f1eadb"/>
+    <path d="M64 182h128M64 206h128M64 230h128"/>
+    <circle cx="72" cy="172" r="2" fill="#52624b"/><circle cx="72" cy="195" r="2" fill="#52624b"/><circle cx="72" cy="220" r="2" fill="#52624b"/>
+    <path d="M167 171h16m-16 24h16m-16 24h16"/>
+    <path d="M78 255v17h99v-17"/>
+    <path d="M233 147l132-12 27 99-132 13z" fill="#ead8c4"/>
+    <ellipse cx="311" cy="186" rx="42" ry="35" transform="rotate(-6 311 186)" fill="#455044"/>
+    <ellipse cx="311" cy="186" rx="33" ry="27" transform="rotate(-6 311 186)" stroke="#78806c"/>
+    <ellipse cx="311" cy="186" rx="24" ry="20" transform="rotate(-6 311 186)" stroke="#78806c"/>
+    <ellipse cx="311" cy="186" rx="11" ry="9" fill="#ba7b59" stroke="#ba7b59"/>
+    <circle cx="311" cy="186" r="2" fill="#f7f3e9" stroke="#f7f3e9"/>
+    <path d="M357 151l12 41-22 17" stroke="#965437" stroke-width="3"/>
+    <path d="M348 206l-6 5m-81 23l16-1"/>
+    <path d="M205 306l10-43c20-2 39 1 57 9 16-10 40-15 58-11l13 43c-22-4-44 1-64 12-26-10-48-15-74-10z" fill="#f7f3e9"/>
+    <path d="M272 272l7 44m-55-39l33 7m-36 4l34 7m31-12l31-8m-28 19l32-8" stroke="#aaa693"/>
+    <path d="M92 296c-10-1-15-11-11-19 4-6 12-7 17-3m-5 22l18 10" stroke="#965437"/>
+    <path d="M112 269c-9 9-12 20-9 31m7-26l9 5-12 23-9-4m15-25c12-15 29-19 42-7m-3 5l8 4-10 24-9-4"/>
+    <path d="M351 89l15-3v29m-15-16v19"/>
+    <ellipse cx="347" cy="120" rx="6" ry="4" fill="#965437" stroke="#965437"/>
+    <ellipse cx="362" cy="115" rx="6" ry="4" fill="#965437" stroke="#965437"/>
+    <path d="M39 214l-8 3m184-90l4-8m160 140l8 5" stroke="#aaa693"/>
+  </g>
+</svg>

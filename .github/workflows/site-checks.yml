@@ -26,6 +26,21 @@ jobs:
         run: docker run -d --name website --read-only --cap-drop=ALL --security-opt=no-new-privileges --tmpfs /tmp:rw,noexec,nosuid,size=64m -p 127.0.0.1:8080:8080 henryfranco-site:test
       - name: Check served pages and metadata
         run: python3 tests/check_site.py
+      - name: Install browser for design previews
+        run: npx --yes playwright@1.56.1 install --with-deps chromium
+      - name: Capture desktop and mobile previews
+        run: |
+          mkdir -p design-previews
+          npx --yes playwright@1.56.1 screenshot --browser chromium --viewport-size "1440,1000" --full-page http://127.0.0.1:8080/ design-previews/desktop.png
+          npx --yes playwright@1.56.1 screenshot --browser chromium --viewport-size "390,844" --full-page http://127.0.0.1:8080/ design-previews/mobile.png
+          npx --yes playwright@1.56.1 screenshot --browser chromium --viewport-size "1440,1000" --full-page http://127.0.0.1:8080/about/ design-previews/about-desktop.png
+          npx --yes playwright@1.56.1 screenshot --browser chromium --viewport-size "390,844" --full-page http://127.0.0.1:8080/about/ design-previews/about-mobile.png
+      - name: Save design previews
+        uses: actions/upload-artifact@v4
+        with:
+          name: design-previews
+          path: design-previews/
+          retention-days: 14
       - name: Show container logs
         if: failure()
         run: docker logs website

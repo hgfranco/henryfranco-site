@@ -11,7 +11,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://henryfranco.dev/">
   <meta name="twitter:card" content="summary">
-  <meta name="theme-color" content="#04143a">
+  <meta name="theme-color" content="#f7f3e9">
   <link rel="stylesheet" href="/styles.css">
   <script type="application/ld+json">
 {
@@ -39,67 +39,78 @@
   <a class="skip-link" href="#main">Skip to content</a>
   <div class="page">
     <header class="site-header">
-      <div class="identity">
-        <h1><strong>Henry</strong> Franco</h1>
-        <p class="role">Engineering Manager</p>
-      </div>
-      <a class="email" href="mailto:henry@henryfranco.com">henry at henryfranco dot com</a>
+      <a class="wordmark" href="/" aria-label="Henry Franco home">Henry Franco<span class="wordmark-dot" aria-hidden="true">.</span></a>
       <nav aria-label="Main navigation">
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#connect">Connect</a>
+        <a href="/about/">A little about me</a>
+        <a href="#projects">Things I've built</a>
+        <a href="#connect">Say hello <span aria-hidden="true">↗</span></a>
       </nav>
     </header>
     <main id="main">
       <section class="intro" id="about" aria-labelledby="about-heading">
-        <h2 id="about-heading">Engineering, infrastructure,<br class="desktop-break"> and a love of music.</h2>
-        <p>I'm Henry Franco, an Engineering Manager and the creator of <a href="https://whatishenrylisteningto.com/">What Is Henry Listening To?</a> I explore AWS, Kubernetes, and infrastructure automation through hands-on projects, combining my interest in technology with my love of music.</p>
+        <div class="intro-copy">
+          <p class="eyebrow">Engineering manager &amp; curious builder</p>
+          <h1 id="about-heading">People, systems,<br>and a good <em>soundtrack.</em></h1>
+          <p class="intro-text">I'm Henry. I work in engineering management, explore how infrastructure works, and turn things I'm curious about into projects.</p>
+          <p class="intro-text">This is my little corner of the internet: a mix of AWS, Kubernetes, automation, and whatever I'm listening to.</p>
+          <a class="text-link" href="#projects">Take a look around <span aria-hidden="true">↓</span></a>
+        </div>
+        <figure class="desk-sketch">
+          <img src="/workbench.svg" width="440" height="400" alt="A line drawing of a cloud connected to servers, beside a record player and an open notebook.">
+          <figcaption>Some infrastructure. Some music. Always something to figure out.</figcaption>
+        </figure>
       </section>
-      <div class="columns">
-        <section aria-labelledby="focus-heading">
-          <h2 class="section-heading" id="focus-heading">Focus</h2>
-          <dl class="topics">
-            <div><dt>Engineering management</dt><dd>My professional role, alongside a continued interest in hands-on engineering.</dd></div>
-            <div><dt>Cloud &amp; Kubernetes</dt><dd>Running applications on AWS and exploring Kubernetes operations.</dd></div>
-            <div><dt>Infrastructure automation</dt><dd>Terraform for infrastructure and Ansible for repeatable configuration.</dd></div>
-          </dl>
-        </section>
-        <section aria-labelledby="interests-heading">
-          <h2 class="section-heading" id="interests-heading">Interests</h2>
-          <dl class="topics">
-            <div><dt>Music &amp; podcasts</dt><dd>Following favorite artists, discovering new sounds, and listening to technical conversations.</dd></div>
-            <div><dt>Learning by building</dt><dd>Turning ideas into working applications and understanding the systems behind them.</dd></div>
-            <div><dt>Linux &amp; scripting</dt><dd>Command-line tools, Bash, and automation that make everyday work easier.</dd></div>
-          </dl>
-        </section>
-      </div>
       <section class="projects-section" id="projects" aria-labelledby="projects-heading">
-        <h2 class="section-heading" id="projects-heading">Projects</h2>
-        <div class="project-grid">
-          <article class="project">
-            <p class="eyebrow">Music + engineering</p>
-            <h3>What Is Henry Listening To?</h3>
-            <p>A live window into my Spotify music and podcasts, with recent listening activity and a map of artist origins.</p>
-            <a href="https://whatishenrylisteningto.com/">Explore the app <span aria-hidden="true">↗</span></a>
-          </article>
-          <article class="project">
-            <p class="eyebrow">Infrastructure + automation</p>
-            <h3>Behind the application</h3>
-            <p>The AWS infrastructure and Kubernetes configuration behind the app, built with Terraform and Ansible.</p>
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Built out of curiosity</p>
+            <h2 id="projects-heading">A few things I've been making.</h2>
+          </div>
+          <p class="section-note">Personal projects, with plenty<br class="desktop-break"> to learn along the way.</p>
+        </div>
+        <article class="project music-project">
+          <div class="project-side">
+            <span class="project-number" aria-hidden="true">01</span>
+            <p class="project-category">Music &amp; code</p>
+          </div>
+          <div class="project-copy">
+            <h3><a href="https://whatishenrylisteningto.com/">What Is Henry Listening To? <span aria-hidden="true">↗</span></a></h3>
+            <p>A little window into my music and podcasts. It shows what's playing on Spotify, recent listening, and where artists come from.</p>
+            <ul class="project-tags" aria-label="Project technologies"><li>Spotify API</li><li>Kubernetes</li><li>AWS</li></ul>
+          </div>
+          <div class="record" aria-hidden="true"><span></span></div>
+        </article>
+        <article class="project infrastructure-project">
+          <div class="project-side">
+            <span class="project-number" aria-hidden="true">02</span>
+            <p class="project-category">Under the hood</p>
+          </div>
+          <div class="project-copy">
+            <h3>The infrastructure behind it.</h3>
+            <p>A kubeadm cluster on AWS, built with Terraform and configured with Ansible. Both this site and the Spotify app run there, behind a shared load balancer.</p>
             <div class="project-links">
               <a href="https://github.com/hgfranco/terraform">Terraform <span aria-hidden="true">↗</span></a>
               <a href="https://github.com/hgfranco/ansible">Ansible <span aria-hidden="true">↗</span></a>
+              <a href="https://github.com/hgfranco/k8s-infra">Kubernetes config <span aria-hidden="true">↗</span></a>
             </div>
-          </article>
-        </div>
+          </div>
+          <span class="terminal-mark" aria-hidden="true">&gt;_</span>
+        </article>
+      </section>
+      <section class="personal-note" aria-labelledby="note-heading">
+        <p class="eyebrow">Beyond the terminal</p>
+        <h2 id="note-heading">Usually learning something.<br>Often listening to something.</h2>
+        <p>I like getting my hands on a problem and understanding the pieces: Linux, networking, a Bash script that saves a few steps. Music and podcasts are part of the mix, too.</p>
       </section>
       <section class="connect" id="connect" aria-labelledby="connect-heading">
-        <h2 class="section-heading" id="connect-heading">Connect</h2>
-        <p>Find my projects on GitHub, follow me on Instagram, or get in touch by email.</p>
+        <div>
+          <p class="eyebrow">Keep in touch</p>
+          <h2 id="connect-heading">Let's say hello.</h2>
+          <a class="email-link" href="mailto:henry@henryfranco.com">henry@henryfranco.com <span aria-hidden="true">↗</span></a>
+        </div>
         <ul class="social-links">
-          <li><a href="https://github.com/hgfranco">GitHub</a></li>
-          <li><a href="https://www.instagram.com/hgfranco/">Instagram</a></li>
-          <li><a href="mailto:henry@henryfranco.com">Email Henry</a></li>
+          <li><a href="https://github.com/hgfranco">GitHub <span aria-hidden="true">↗</span></a></li>
+          <li><a href="https://www.instagram.com/hgfranco/">Instagram <span aria-hidden="true">↗</span></a></li>
         </ul>
       </section>
     </main>

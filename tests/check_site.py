@@ -45,6 +45,8 @@ class Page(HTMLParser):
                 self.canonical = attrs.get("href")
             if attrs.get("rel") == "stylesheet":
                 self.assets.append(attrs["href"])
+        if tag == "img" and attrs.get("src", "").startswith("/"):
+            self.assets.append(attrs["src"])
         if tag == "script" and attrs.get("type") == "application/ld+json":
             self.collect_schema = True
 
@@ -75,12 +77,26 @@ assert "https://www.instagram.com/hgfranco/" in schema["mainEntity"]["sameAs"]
 for asset in page.assets:
     with get(asset) as response:
         assert response.read(), asset
+assert 'href="/about/">A little about me' in html
+with get("/about/") as response:
+    about_html = response.read().decode()
+    assert response.headers.get("X-Content-Type-Options") == "nosniff"
+about_page = Page()
+about_page.feed(about_html)
+assert about_page.h1_count == 1
+assert about_page.canonical == "https://henryfranco.dev/about/"
+assert 'aria-current="page"' in about_html
+assert 'href="/#projects"' in about_html
+assert json.loads(about_page.schema)["mainEntity"]["name"] == "Henry Franco"
+for asset in about_page.assets:
+    with get(asset) as response:
+        assert response.read(), asset
 with get("/robots.txt") as response:
     assert "Sitemap: https://henryfranco.dev/sitemap.xml" in response.read().decode()
 with get("/sitemap.xml") as response:
     root = ET.fromstring(response.read())
     locations = [item.text for item in root.findall(".//{http://www.sitemaps.org/schemas/sitemap/0.9}loc")]
-    assert locations == ["https://henryfranco.dev/"]
+    assert locations == ["https://henryfranco.dev/", "https://henryfranco.dev/about/"]
 try:
     get("/missing-page")
 except urllib.error.HTTPError as error:
