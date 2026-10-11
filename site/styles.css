@@ -93,3 +93,23 @@ footer { padding-top: 22px; color: var(--muted); font-size: 11px; text-align: ce
   footer { font-size: 11px; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* About page */
+nav a[aria-current="page"] { color: var(--green); text-decoration: underline; }
+.about-intro { display: grid; grid-template-columns: 1.3fr 1fr; gap: 64px; align-items: center; padding: 72px 0 56px; }
+.about-intro h1 { margin-bottom: 24px; }
+.about-intro p:not(.eyebrow) { max-width: 530px; color: var(--muted); font-size: 16px; }
+.about-intro .about-lead { font-family: var(--serif); font-size: 24px; line-height: 1.5; color: var(--ink); }
+.about-portrait { margin: 0; max-width: 310px; justify-self: center; }
+.about-portrait img { width: 100%; mix-blend-mode: multiply; }
+.about-story { max-width: 690px; margin: 0 auto 64px; }
+.about-story section { border-top: 1px solid var(--line); padding: 32px 0 12px; }
+.about-story h2 { margin-bottom: 20px; }
+.about-story p:not(.eyebrow) { color: var(--muted); font-size: 16px; margin: 0 0 20px; }
+.about-story .eyebrow { margin-bottom: 12px; }
+@media (max-width: 640px) {
+  .about-intro { grid-template-columns: 1fr; gap: 24px; padding: 44px 0 32px; }
+  .about-portrait { max-width: 220px; }
+  .about-intro .about-lead { font-size: 22px; }
+  .about-story { margin-bottom: 36px; }
+}
