@@ -3,6 +3,7 @@
   <g fill="none" stroke="#52624b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
     <path d="M55 310c86 4 237 2 333-2" stroke="#aaa693"/>
     <path d="M77 99c-16 2-24-12-18-25 4-9 14-12 23-9 2-23 28-35 47-22 12-14 36-12 44 5 25-9 42 13 33 30-3 8-11 12-21 13z" fill="#e7ebdc"/>
+    <text x="132" y="77" text-anchor="middle" font-family="Georgia, serif" font-size="22" fill="#52624b" stroke="none">AWS</text>
     <path d="M129 99v35m-52 0h116m-116 0v25m58-25v25m58-25v25" stroke-dasharray="3 5"/>
     <!-- Three rack-mounted servers with vents, status lights, and power buttons. -->
     <rect x="52" y="153" width="153" height="106" rx="5" fill="#f1eadb"/>
@@ -23,8 +24,7 @@
     <ellipse cx="311" cy="186" rx="24" ry="20" transform="rotate(-6 311 186)" stroke="#78806c"/>
     <ellipse cx="311" cy="186" rx="11" ry="9" fill="#ba7b59" stroke="#ba7b59"/>
     <circle cx="311" cy="186" r="2" fill="#f7f3e9" stroke="#f7f3e9"/>
-    <path d="M357 151l12 41-22 17" stroke="#965437" stroke-width="3"/>
-    <path d="M348 206l-6 5m-81 23l16-1"/>
+    <path d="M357 151l12 41-27 19" stroke="#965437" stroke-width="3"/>
     <path d="M205 306l10-43c20-2 39 1 57 9 16-10 40-15 58-11l13 43c-22-4-44 1-64 12-26-10-48-15-74-10z" fill="#f7f3e9"/>
     <path d="M272 272l7 44m-55-39l33 7m-36 4l34 7m31-12l31-8m-28 19l32-8" stroke="#aaa693"/>
     <!-- A simple, recognizable pair of over-ear headphones. -->
@@ -33,9 +33,10 @@
     <rect x="94" y="281" width="12" height="23" rx="5" fill="#ead8c4"/>
     <rect x="142" y="281" width="12" height="23" rx="5" fill="#ead8c4"/>
     <path d="M100 285v15m48-15v15M154 298c17 3 17 12 30 10" stroke="#965437"/>
-    <path d="M351 89l15-3v29m-15-16v19"/>
-    <ellipse cx="347" cy="120" rx="6" ry="4" fill="#965437" stroke="#965437"/>
-    <ellipse cx="362" cy="115" rx="6" ry="4" fill="#965437" stroke="#965437"/>
-    <path d="M39 214l-8 3m184-90l4-8m160 140l8 5" stroke="#aaa693"/>
+    <!-- Joined eighth notes: each stem connects to its notehead and the shared beam. -->
+    <path d="M352 120V89l22-5v30" stroke="#965437" stroke-width="2.2"/>
+    <path d="M352 92l22-5" stroke="#965437" stroke-width="2.2"/>
+    <ellipse cx="346" cy="120" rx="7" ry="4.5" transform="rotate(-18 346 120)" fill="#965437" stroke="#965437"/>
+    <ellipse cx="368" cy="114" rx="7" ry="4.5" transform="rotate(-18 368 114)" fill="#965437" stroke="#965437"/>
   </g>
 </svg>
