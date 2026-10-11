@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: henryfranco-dev
-  namespace: spotify-now-playing
+  namespace: henryfranco
   annotations:
     alb.ingress.kubernetes.io/healthcheck-path: /healthz
 spec:
