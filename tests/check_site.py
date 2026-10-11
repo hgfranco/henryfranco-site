@@ -45,6 +45,8 @@ class Page(HTMLParser):
                 self.canonical = attrs.get("href")
             if attrs.get("rel") == "stylesheet":
                 self.assets.append(attrs["href"])
+        if tag == "img" and attrs.get("src", "").startswith("/"):
+            self.assets.append(attrs["src"])
         if tag == "script" and attrs.get("type") == "application/ld+json":
             self.collect_schema = True
 

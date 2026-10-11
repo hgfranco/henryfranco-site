@@ -1,6 +1,6 @@
 # henryfranco.dev
 
-Henry Franco’s personal website: a responsive static page inspired by the current site's typography, navy text, blue accents, and generous spacing.
+Henry Franco’s personal website: a warm, responsive static page with a cream background, moss-green accents, editorial serif typography, and an original infrastructure-and-music illustration. It brings together engineering management, AWS/Kubernetes projects, and personal interests.
 
 The page includes a short bio, projects, public profiles, a canonical URL, ProfilePage/Person structured data, a sitemap, and robots.txt. It uses no JavaScript, external fonts, cookies, analytics, or personal credentials.
 
