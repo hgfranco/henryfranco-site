@@ -25,15 +25,15 @@ It checks real HTTP responses, metadata, JSON-LD, linked assets, discovery files
 
 The publication plan uses the existing kubeadm cluster and ECR. The ALB arrangement and DNS/certificate configuration are being prepared separately; this branch does not deploy or change DNS.
 
-The workloads use the existing spotify-now-playing namespace so both sites can share the current Ingress and ALB without replacing it. Each site has its own Deployment, Service, labels, and NetworkPolicy. Do not apply them until the ECR repository, node IAM pull permission, and linux/amd64 image exist.
+The personal site uses its own henryfranco namespace, created by k8s-infra. Spotify remains in spotify-now-playing. Each application has its own Ingress, sharing the public-applications IngressGroup. See [the staged namespace migration](docs/namespace-migration.md) before applying to the existing cluster. Do not apply until the ECR image, node IAM permissions, and namespace exist.
 
 Once those prerequisites are ready:
 
 ```bash
 kubectl apply --dry-run=server -f kubernetes/
 kubectl apply -f kubernetes/
-kubectl rollout status deployment/henryfranco-dev -n spotify-now-playing --timeout=120s
-kubectl port-forward service/henryfranco-dev -n spotify-now-playing 8080:80
+kubectl rollout status deployment/henryfranco-dev -n henryfranco --timeout=120s
+kubectl port-forward service/henryfranco-dev -n henryfranco 8080:80
 ```
 
 The app is stateless: two replicas with RollingUpdate, a soft preference for different nodes, health probes, and a PodDisruptionBudget. No PVC is needed. The NodePort Service supports ALB instance targets because the existing Calico pod addresses are not directly routed in the VPC. NetworkPolicy allows VPC source addresses, matching the existing cluster's ALB-to-node traffic path.
@@ -63,15 +63,15 @@ Link the personal website from your public profiles. Search ranking is not guara
 ```bash
 REGISTRY=643593783040.dkr.ecr.us-east-1.amazonaws.com
 aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin "$REGISTRY"
-docker buildx build --platform linux/amd64 --tag "$REGISTRY/henryfranco-dev:0.1.0" --push .
+docker buildx build --platform linux/amd64 --tag "$REGISTRY/henryfranco-dev:0.5.0" --push .
 ```
 
 3. Apply the Terraform certificate configuration in environments/public_endpoint with personal_site_dns_enabled=false. Confirm the henryfranco.dev certificate is ISSUED.
-4. Apply the manifests above, then apply `clusters/kubernetes/ingress.yaml` from k8s-infra. Preserve its existing name and namespace to reuse the ALB.
+4. Apply the namespace from k8s-infra, the app manifests above, then both grouped Ingress manifests from k8s-infra. On an existing cluster, follow the migration guide: keep the legacy Ingress until the DNS cutover and rollback window are complete.
 5. Test before changing public DNS:
 
 ```bash
-ALB_HOST=$(kubectl get ingress spotify-now-playing -n spotify-now-playing -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
+ALB_HOST=$(kubectl get ingress henryfranco -n henryfranco -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
 curl -fsS --connect-to "henryfranco.dev:443:${ALB_HOST}:443" https://henryfranco.dev/
 ```
 

@@ -2,7 +2,7 @@ apiVersion: policy/v1
 kind: PodDisruptionBudget
 metadata:
   name: henryfranco-dev
-  namespace: spotify-now-playing
+  namespace: henryfranco
 spec:
   minAvailable: 1
   selector:
