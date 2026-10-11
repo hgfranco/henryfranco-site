@@ -5,19 +5,93 @@
     <path d="M77 99c-16 2-24-12-18-25 4-9 14-12 23-9 2-23 28-35 47-22 12-14 36-12 44 5 25-9 42 13 33 30-3 8-11 12-21 13z" fill="#e7ebdc"/>
     <text x="132" y="77" text-anchor="middle" font-family="Georgia, serif" font-size="22" fill="#52624b" stroke="none">AWS</text>
     <path d="M129 99v35m-52 0h116m-116 0v25m58-25v25m58-25v25" stroke-dasharray="3 5"/>
-    <!-- Three rack-mounted servers with vents, status lights, and power buttons. -->
-    <rect x="52" y="153" width="153" height="106" rx="5" fill="#f1eadb"/>
-    <rect x="60" y="161" width="137" height="24" rx="3" fill="#f7f3e9"/>
-    <rect x="60" y="194" width="137" height="24" rx="3" fill="#f7f3e9"/>
-    <rect x="60" y="227" width="137" height="24" rx="3" fill="#f7f3e9"/>
-    <path d="M75 169v8m6-8v8m6-8v8m6-8v8m6-8v8M75 202v8m6-8v8m6-8v8m6-8v8m6-8v8M75 235v8m6-8v8m6-8v8m6-8v8m6-8v8"/>
-    <g fill="#78806c" stroke="none">
-      <circle cx="161" cy="173" r="2"/><circle cx="168" cy="173" r="2"/>
-      <circle cx="161" cy="206" r="2"/><circle cx="168" cy="206" r="2"/>
-      <circle cx="161" cy="239" r="2"/><circle cx="168" cy="239" r="2"/>
-    </g>
-    <circle cx="183" cy="173" r="5"/><circle cx="183" cy="206" r="5"/><circle cx="183" cy="239" r="5"/>
-    <path d="M183 170v3m0 30v3m0 30v3M62 259v6m133-6v6"/>
+    <!-- Alternative: a server cabinet with rack rails and vented equipment. -->
+    <path d="M68 150l18-12h106l-18 12z" fill="#e7ebdc"/>
+    <path d="M174 150l18-12v112l-18 12z" fill="#d8d5c8"/>
+    <rect x="68" y="150" width="106" height="112" rx="2" fill="#f1eadb"/>
+    <path d="M76 154v104m90-104v104"/>
+    <rect x="80" y="158" width="82" height="28" rx="2" fill="#e7ebdc"/>
+    <path d="M84 165v14m74-14v14"/>
+    <circle cx="90" cy="166" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="94" cy="166" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="98" cy="166" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="102" cy="166" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="106" cy="166" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="110" cy="166" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="114" cy="166" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="90" cy="171" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="94" cy="171" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="98" cy="171" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="102" cy="171" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="106" cy="171" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="110" cy="171" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="114" cy="171" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="90" cy="176" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="94" cy="176" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="98" cy="176" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="102" cy="176" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="106" cy="176" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="110" cy="176" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="114" cy="176" r=".75" fill="#52624b" stroke="none"/>
+    <rect x="126" y="167" width="9" height="7" rx="1" fill="none"/>
+    <circle cx="143" cy="168" r="1.7" fill="#78806c" stroke="none"/>
+    <circle cx="143" cy="175" r="1.7" fill="#965437" stroke="none"/>
+    <circle cx="153" cy="172" r="3.5" fill="none"/>
+    <rect x="80" y="190" width="82" height="28" rx="2" fill="#e7ebdc"/>
+    <path d="M84 197v14m74-14v14"/>
+    <circle cx="90" cy="198" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="94" cy="198" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="98" cy="198" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="102" cy="198" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="106" cy="198" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="110" cy="198" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="114" cy="198" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="90" cy="203" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="94" cy="203" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="98" cy="203" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="102" cy="203" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="106" cy="203" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="110" cy="203" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="114" cy="203" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="90" cy="208" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="94" cy="208" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="98" cy="208" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="102" cy="208" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="106" cy="208" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="110" cy="208" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="114" cy="208" r=".75" fill="#52624b" stroke="none"/>
+    <rect x="126" y="199" width="9" height="7" rx="1" fill="none"/>
+    <circle cx="143" cy="200" r="1.7" fill="#78806c" stroke="none"/>
+    <circle cx="143" cy="207" r="1.7" fill="#965437" stroke="none"/>
+    <circle cx="153" cy="204" r="3.5" fill="none"/>
+    <rect x="80" y="222" width="82" height="28" rx="2" fill="#e7ebdc"/>
+    <path d="M84 229v14m74-14v14"/>
+    <circle cx="90" cy="230" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="94" cy="230" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="98" cy="230" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="102" cy="230" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="106" cy="230" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="110" cy="230" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="114" cy="230" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="90" cy="235" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="94" cy="235" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="98" cy="235" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="102" cy="235" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="106" cy="235" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="110" cy="235" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="114" cy="235" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="90" cy="240" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="94" cy="240" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="98" cy="240" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="102" cy="240" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="106" cy="240" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="110" cy="240" r=".75" fill="#52624b" stroke="none"/>
+    <circle cx="114" cy="240" r=".75" fill="#52624b" stroke="none"/>
+    <rect x="126" y="231" width="9" height="7" rx="1" fill="none"/>
+    <circle cx="143" cy="232" r="1.7" fill="#78806c" stroke="none"/>
+    <circle cx="143" cy="239" r="1.7" fill="#965437" stroke="none"/>
+    <circle cx="153" cy="236" r="3.5" fill="none"/>
+    <path d="M73 262v4m96-4v4"/>
     <path d="M233 147l132-12 27 99-132 13z" fill="#ead8c4"/>
     <ellipse cx="311" cy="186" rx="42" ry="35" transform="rotate(-6 311 186)" fill="#455044"/>
     <ellipse cx="311" cy="186" rx="33" ry="27" transform="rotate(-6 311 186)" stroke="#78806c"/>
@@ -25,11 +99,7 @@
     <ellipse cx="311" cy="186" rx="11" ry="9" fill="#ba7b59" stroke="#ba7b59"/>
     <circle cx="311" cy="186" r="2" fill="#f7f3e9" stroke="#f7f3e9"/>
     <path d="M357 151l12 41-27 19" stroke="#965437" stroke-width="3"/>
-    <g transform="translate(-150 0)">
-    <path d="M205 306l10-43c20-2 39 1 57 9 16-10 40-15 58-11l13 43c-22-4-44 1-64 12-26-10-48-15-74-10z" fill="#f7f3e9"/>
-    <path d="M272 272l7 44m-55-39l33 7m-36 4l34 7m31-12l31-8m-28 19l32-8" stroke="#aaa693"/>
-    </g>
-    <g transform="translate(150 6)">
+    <g transform="translate(96 6)">
     <!-- A simple, recognizable pair of over-ear headphones. -->
     <path d="M99 294v-11a25 25 0 0 1 50 0v11"/>
     <path d="M104 284v-2a20 20 0 0 1 40 0v2" stroke="#aaa693"/>
