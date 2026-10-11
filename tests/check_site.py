@@ -91,12 +91,27 @@ assert json.loads(about_page.schema)["mainEntity"]["name"] == "Henry Franco"
 for asset in about_page.assets:
     with get(asset) as response:
         assert response.read(), asset
+for page_html in (html, about_html):
+    assert 'href="/resume/"' in page_html
+with get("/resume/") as response:
+    resume_html = response.read().decode()
+    assert response.headers.get("X-Content-Type-Options") == "nosniff"
+resume_page = Page()
+resume_page.feed(resume_html)
+assert resume_page.h1_count == 1
+assert resume_page.canonical == "https://henryfranco.dev/resume/"
+assert 'href="/resume/" aria-current="page"' in resume_html
+assert '<title>Resume | Henry Franco</title>' in resume_html
+assert json.loads(resume_page.schema)["mainEntity"]["name"] == "Henry Franco"
+for asset in resume_page.assets:
+    with get(asset) as response:
+        assert response.read(), asset
 with get("/robots.txt") as response:
     assert "Sitemap: https://henryfranco.dev/sitemap.xml" in response.read().decode()
 with get("/sitemap.xml") as response:
     root = ET.fromstring(response.read())
     locations = [item.text for item in root.findall(".//{http://www.sitemaps.org/schemas/sitemap/0.9}loc")]
-    assert locations == ["https://henryfranco.dev/", "https://henryfranco.dev/about/"]
+    assert locations == ["https://henryfranco.dev/", "https://henryfranco.dev/about/", "https://henryfranco.dev/resume/"]
 try:
     get("/missing-page")
 except urllib.error.HTTPError as error:
