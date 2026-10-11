@@ -1,0 +1,29 @@
+name: Site checks
+on:
+  pull_request:
+  push:
+    branches: ["main", "build-personal-site"]
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Build website container
+        run: docker build -t henryfranco-site:test .
+      - name: Validate NGINX configuration
+        run: docker run --rm --read-only --tmpfs /tmp:rw,noexec,nosuid,size=64m henryfranco-site:test -t
+      - name: Start website with deployment restrictions
+        run: docker run -d --name website --read-only --cap-drop=ALL --security-opt=no-new-privileges --tmpfs /tmp:rw,noexec,nosuid,size=64m -p 127.0.0.1:8080:8080 henryfranco-site:test
+      - name: Check served pages and metadata
+        run: python3 tests/check_site.py
+      - name: Show container logs
+        if: failure()
+        run: docker logs website
+      - name: Stop test container
+        if: always()
+        run: docker rm -f website
