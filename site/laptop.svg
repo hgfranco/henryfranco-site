@@ -1,11 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 90">
   <title>Laptop</title>
-  <g stroke="#52624b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="20" y="14" width="80" height="53" rx="4" fill="#ead8c4"/>
-    <rect x="26" y="20" width="68" height="40" rx="1.5" fill="#e7ebdc"/>
-    <circle cx="60" cy="17" r=".7" fill="#52624b" stroke="none"/>
-    <path d="M20 67 9 76c0 4 4 6 8 6h86c4 0 8-2 8-6l-11-9Z" fill="#f1eadb"/>
-    <path d="M9 76h102M48 67l-3 6h30l-3-6" fill="none"/>
-    <path d="M35 33h29m-29 7h44m-44 7h21" fill="none" stroke="#78806c"/>
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <rect x="20" y="14" width="80" height="53" rx="5" fill="#333a32"/>
+    <rect x="25" y="19" width="70" height="43" rx="2" fill="#495046" stroke="#626b5a" stroke-width="1"/>
+    <rect x="28" y="22" width="64" height="37" rx="1" fill="#333a32" stroke="#495046" stroke-width="1"/>
+    <circle cx="60" cy="16.5" r=".8" fill="#b77555"/>
+    <path d="M20 67 9 76c0 4 4 6 8 6h86c4 0 8-2 8-6l-11-9Z" fill="#333a32"/>
+    <path d="M21 69 15 75h90l-6-6" fill="#495046"/>
+    <path d="M49 68l-3 5h28l-3-5Z" fill="#b77555"/>
+    <path d="M15 77h90" fill="none" stroke="#626b5a" stroke-width="1"/>
+    <path d="M37 33h27m-27 7h42m-42 7h20" fill="none" stroke="#78806c" stroke-width="1.5"/>
   </g>
 </svg>
