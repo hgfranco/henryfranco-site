@@ -25,14 +25,18 @@
     <ellipse cx="311" cy="186" rx="11" ry="9" fill="#ba7b59" stroke="#ba7b59"/>
     <circle cx="311" cy="186" r="2" fill="#f7f3e9" stroke="#f7f3e9"/>
     <path d="M357 151l12 41-27 19" stroke="#965437" stroke-width="3"/>
+    <g transform="translate(-150 0)">
     <path d="M205 306l10-43c20-2 39 1 57 9 16-10 40-15 58-11l13 43c-22-4-44 1-64 12-26-10-48-15-74-10z" fill="#f7f3e9"/>
     <path d="M272 272l7 44m-55-39l33 7m-36 4l34 7m31-12l31-8m-28 19l32-8" stroke="#aaa693"/>
+    </g>
+    <g transform="translate(150 6)">
     <!-- A simple, recognizable pair of over-ear headphones. -->
     <path d="M99 294v-11a25 25 0 0 1 50 0v11"/>
     <path d="M104 284v-2a20 20 0 0 1 40 0v2" stroke="#aaa693"/>
     <rect x="94" y="281" width="12" height="23" rx="5" fill="#ead8c4"/>
     <rect x="142" y="281" width="12" height="23" rx="5" fill="#ead8c4"/>
     <path d="M100 285v15m48-15v15M154 298c17 3 17 12 30 10" stroke="#965437"/>
+    </g>
     <!-- Joined eighth notes: each stem connects to its notehead and the shared beam. -->
     <path d="M352 120V89l22-5v30" stroke="#965437" stroke-width="2.2"/>
     <path d="M352 92l22-5" stroke="#965437" stroke-width="2.2"/>
