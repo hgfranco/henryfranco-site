@@ -14,7 +14,10 @@ jobs:
         with:
           persist-credentials: false
       - name: Inspect public DNS for deployment planning
-        run: dig +short NS henryfranco.dev
+        run: |
+          dig +short NS henryfranco.dev
+          dig +short A henryfranco.dev
+          dig +short AAAA henryfranco.dev
       - name: Build website container
         run: docker build -t henryfranco-site:test .
       - name: Validate NGINX configuration
