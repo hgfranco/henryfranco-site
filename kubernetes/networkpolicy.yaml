@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: henryfranco-dev-ingress
+  namespace: spotify-now-playing
+spec:
+  podSelector:
+    matchLabels:
+      app: henryfranco-dev
+  policyTypes:
+    - Ingress
+  ingress:
+    - from:
+        - ipBlock:
+            cidr: 10.42.0.0/16
+      ports:
+        - protocol: TCP
+          port: 8080

@@ -1,0 +1,9 @@
+.git/
+.github/
+kubernetes/
+tests/
+README.md
+.env
+.env.*
+*.pem
+*.key
