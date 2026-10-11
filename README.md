@@ -25,21 +25,20 @@ It checks real HTTP responses, metadata, JSON-LD, linked assets, discovery files
 
 The publication plan uses the existing kubeadm cluster and ECR. The ALB arrangement and DNS/certificate configuration are being prepared separately; this branch does not deploy or change DNS.
 
-The Kubernetes files are staged for a separate henryfranco-dev namespace. Routing is intentionally pending the ALB arrangement decision. Do not apply them until the ECR repository, node IAM pull permission, and linux/amd64 image exist.
+The workloads use the existing spotify-now-playing namespace so both sites can share the current Ingress and ALB without replacing it. Each site has its own Deployment, Service, labels, and NetworkPolicy. Do not apply them until the ECR repository, node IAM pull permission, and linux/amd64 image exist.
 
 Once those prerequisites are ready:
 
 ```bash
-kubectl apply -f kubernetes/namespace.yaml
 kubectl apply --dry-run=server -f kubernetes/
 kubectl apply -f kubernetes/
-kubectl rollout status deployment/henryfranco-dev -n henryfranco-dev --timeout=120s
-kubectl port-forward service/henryfranco-dev -n henryfranco-dev 8080:80
+kubectl rollout status deployment/henryfranco-dev -n spotify-now-playing --timeout=120s
+kubectl port-forward service/henryfranco-dev -n spotify-now-playing 8080:80
 ```
 
 The app is stateless: two replicas with RollingUpdate, a soft preference for different nodes, health probes, and a PodDisruptionBudget. No PVC is needed. The NodePort Service supports ALB instance targets because the existing Calico pod addresses are not directly routed in the VPC. NetworkPolicy allows VPC source addresses, matching the existing cluster's ALB-to-node traffic path.
 
-A separate namespace cannot be routed by simply adding a backend to the current Spotify Ingress. An explicit IngressGroup could share an ALB across namespaces, but changing the current implicit group creates a new ALB and requires a coordinated DNS cutover. Keep the existing site live until the new HTTPS endpoint is verified.
+Apply the companion Spotify Ingress PR only after this workload is ready and the Route 53 ACM certificate is issued. It adds henryfranco.dev to the existing Ingress and discovers ACM certificates by hostname. Verify HTTPS directly against the ALB before enabling the Terraform DNS cutover switch.
 
 The NGINX base is pinned to the multi-platform digest tested by CI. Update it deliberately and rerun the container checks.
 
@@ -53,3 +52,27 @@ The site’s content is in site/index.html and its styling is in site/styles.css
 Add henryfranco.dev as a Domain property in Google Search Console and verify ownership with its DNS TXT record. Submit https://henryfranco.dev/sitemap.xml, inspect the homepage, and request indexing.
 
 Link the personal website from your public profiles. Search ranking is not guaranteed, and sitemap submission does not guarantee indexing.
+
+## Publication order
+
+1. Apply the Terraform ECR and IAM change in environments/kubernetes (workspace kubernetes).
+2. Build and publish the image:
+
+```bash
+REGISTRY=643593783040.dkr.ecr.us-east-1.amazonaws.com
+aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin "$REGISTRY"
+docker buildx build --platform linux/amd64 --tag "$REGISTRY/henryfranco-dev:0.1.0" --push .
+```
+
+3. Apply the Terraform certificate configuration in environments/public_endpoint with personal_site_dns_enabled=false. Confirm the henryfranco.dev certificate is ISSUED.
+4. Apply the manifests above, then apply the companion shared Ingress change from spotify-now-playing.
+5. Test before changing public DNS:
+
+```bash
+ALB_HOST=$(kubectl get ingress spotify-now-playing -n spotify-now-playing -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
+curl -fsS --connect-to "henryfranco.dev:443:${ALB_HOST}:443" https://henryfranco.dev/
+```
+
+6. Save the old Route 53 A/AAAA records for rollback. Enable personal_site_dns_enabled in Terraform, review the plan, and apply. Confirm https://henryfranco.dev/ before retiring the old hosting.
+
+A future image release must use a new immutable ECR tag. Update the Deployment image through a PR. No commands here run automatically when the PR is merged.

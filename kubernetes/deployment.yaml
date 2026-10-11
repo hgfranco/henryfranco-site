@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: henryfranco-dev
-  namespace: henryfranco-dev
+  namespace: spotify-now-playing
 spec:
   replicas: 2
   revisionHistoryLimit: 3
