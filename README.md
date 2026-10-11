@@ -25,6 +25,24 @@ It checks real HTTP responses, metadata, JSON-LD, linked assets, discovery files
 
 The publication plan uses the existing kubeadm cluster and ECR. The ALB arrangement and DNS/certificate configuration are being prepared separately; this branch does not deploy or change DNS.
 
+The Kubernetes files are staged for a separate henryfranco-dev namespace. Routing is intentionally pending the ALB arrangement decision. Do not apply them until the ECR repository, node IAM pull permission, and linux/amd64 image exist.
+
+Once those prerequisites are ready:
+
+```bash
+kubectl apply -f kubernetes/namespace.yaml
+kubectl apply --dry-run=server -f kubernetes/
+kubectl apply -f kubernetes/
+kubectl rollout status deployment/henryfranco-dev -n henryfranco-dev --timeout=120s
+kubectl port-forward service/henryfranco-dev -n henryfranco-dev 8080:80
+```
+
+The app is stateless: two replicas with RollingUpdate, a soft preference for different nodes, health probes, and a PodDisruptionBudget. No PVC is needed. The NodePort Service supports ALB instance targets because the existing Calico pod addresses are not directly routed in the VPC. NetworkPolicy allows VPC source addresses, matching the existing cluster's ALB-to-node traffic path.
+
+A separate namespace cannot be routed by simply adding a backend to the current Spotify Ingress. An explicit IngressGroup could share an ALB across namespaces, but changing the current implicit group creates a new ALB and requires a coordinated DNS cutover. Keep the existing site live until the new HTTPS endpoint is verified.
+
+The NGINX base is pinned to the multi-platform digest tested by CI. Update it deliberately and rerun the container checks.
+
 Build linux/amd64 for the current EC2 nodes. Use a unique image version and deploy the published ECR digest.
 The AWS ECR credential provider on the nodes supplies pull credentials; this site needs no image-pull Secret.
 
