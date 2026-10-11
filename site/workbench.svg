@@ -4,11 +4,19 @@
     <path d="M55 310c86 4 237 2 333-2" stroke="#aaa693"/>
     <path d="M77 99c-16 2-24-12-18-25 4-9 14-12 23-9 2-23 28-35 47-22 12-14 36-12 44 5 25-9 42 13 33 30-3 8-11 12-21 13z" fill="#e7ebdc"/>
     <path d="M129 99v35m-52 0h116m-116 0v25m58-25v25m58-25v25" stroke-dasharray="3 5"/>
-    <rect x="52" y="160" width="153" height="95" rx="7" fill="#f1eadb"/>
-    <path d="M64 182h128M64 206h128M64 230h128"/>
-    <circle cx="72" cy="172" r="2" fill="#52624b"/><circle cx="72" cy="195" r="2" fill="#52624b"/><circle cx="72" cy="220" r="2" fill="#52624b"/>
-    <path d="M167 171h16m-16 24h16m-16 24h16"/>
-    <path d="M78 255v17h99v-17"/>
+    <!-- Three rack-mounted servers with vents, status lights, and power buttons. -->
+    <rect x="52" y="153" width="153" height="106" rx="5" fill="#f1eadb"/>
+    <rect x="60" y="161" width="137" height="24" rx="3" fill="#f7f3e9"/>
+    <rect x="60" y="194" width="137" height="24" rx="3" fill="#f7f3e9"/>
+    <rect x="60" y="227" width="137" height="24" rx="3" fill="#f7f3e9"/>
+    <path d="M75 169v8m6-8v8m6-8v8m6-8v8m6-8v8M75 202v8m6-8v8m6-8v8m6-8v8m6-8v8M75 235v8m6-8v8m6-8v8m6-8v8m6-8v8"/>
+    <g fill="#78806c" stroke="none">
+      <circle cx="161" cy="173" r="2"/><circle cx="168" cy="173" r="2"/>
+      <circle cx="161" cy="206" r="2"/><circle cx="168" cy="206" r="2"/>
+      <circle cx="161" cy="239" r="2"/><circle cx="168" cy="239" r="2"/>
+    </g>
+    <circle cx="183" cy="173" r="5"/><circle cx="183" cy="206" r="5"/><circle cx="183" cy="239" r="5"/>
+    <path d="M183 170v3m0 30v3m0 30v3M62 259v6m133-6v6"/>
     <path d="M233 147l132-12 27 99-132 13z" fill="#ead8c4"/>
     <ellipse cx="311" cy="186" rx="42" ry="35" transform="rotate(-6 311 186)" fill="#455044"/>
     <ellipse cx="311" cy="186" rx="33" ry="27" transform="rotate(-6 311 186)" stroke="#78806c"/>
@@ -19,8 +27,12 @@
     <path d="M348 206l-6 5m-81 23l16-1"/>
     <path d="M205 306l10-43c20-2 39 1 57 9 16-10 40-15 58-11l13 43c-22-4-44 1-64 12-26-10-48-15-74-10z" fill="#f7f3e9"/>
     <path d="M272 272l7 44m-55-39l33 7m-36 4l34 7m31-12l31-8m-28 19l32-8" stroke="#aaa693"/>
-    <path d="M92 296c-10-1-15-11-11-19 4-6 12-7 17-3m-5 22l18 10" stroke="#965437"/>
-    <path d="M112 269c-9 9-12 20-9 31m7-26l9 5-12 23-9-4m15-25c12-15 29-19 42-7m-3 5l8 4-10 24-9-4"/>
+    <!-- A simple, recognizable pair of over-ear headphones. -->
+    <path d="M99 294v-11a25 25 0 0 1 50 0v11"/>
+    <path d="M104 284v-2a20 20 0 0 1 40 0v2" stroke="#aaa693"/>
+    <rect x="94" y="281" width="12" height="23" rx="5" fill="#ead8c4"/>
+    <rect x="142" y="281" width="12" height="23" rx="5" fill="#ead8c4"/>
+    <path d="M100 285v15m48-15v15M154 298c17 3 17 12 30 10" stroke="#965437"/>
     <path d="M351 89l15-3v29m-15-16v19"/>
     <ellipse cx="347" cy="120" rx="6" ry="4" fill="#965437" stroke="#965437"/>
     <ellipse cx="362" cy="115" rx="6" ry="4" fill="#965437" stroke="#965437"/>
