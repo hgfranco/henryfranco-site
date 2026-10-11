@@ -38,6 +38,8 @@ kubectl port-forward service/henryfranco-dev -n spotify-now-playing 8080:80
 
 The app is stateless: two replicas with RollingUpdate, a soft preference for different nodes, health probes, and a PodDisruptionBudget. No PVC is needed. The NodePort Service supports ALB instance targets because the existing Calico pod addresses are not directly routed in the VPC. NetworkPolicy allows VPC source addresses, matching the existing cluster's ALB-to-node traffic path.
 
+The Service uses `externalTrafficPolicy: Local` so ALB connections reach only a Pod on the targeted node, preserving the source IP and avoiding the cross-node forwarding path associated with intermittent timeouts in this cluster. Nodes without a ready local website Pod cannot serve this NodePort; ALB target health checks must remove those nodes from traffic. During rollouts or node maintenance, keep at least one healthy target and verify ALB target health. The Deployment's node-spread preference helps distribute replicas but does not guarantee one on every node.
+
 Apply the shared Ingress from [hgfranco/k8s-infra](https://github.com/hgfranco/k8s-infra) only after this workload is ready and the Route 53 ACM certificate is issued. It adds henryfranco.dev to the existing Ingress and discovers ACM certificates by hostname. Verify HTTPS directly against the ALB before enabling the Terraform DNS cutover switch.
 
 The NGINX base is pinned to the multi-platform digest tested by CI. Update it deliberately and rerun the container checks.
