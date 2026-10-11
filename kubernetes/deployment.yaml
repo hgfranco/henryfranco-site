@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: henryfranco-dev
-  namespace: spotify-now-playing
+  namespace: henryfranco
 spec:
   replicas: 2
   revisionHistoryLimit: 3
@@ -36,7 +36,7 @@ spec:
               app: henryfranco-dev
       containers:
         - name: website
-          image: 643593783040.dkr.ecr.us-east-1.amazonaws.com/henryfranco-dev:0.1.0
+          image: 643593783040.dkr.ecr.us-east-1.amazonaws.com/henryfranco-dev:0.5.0
           imagePullPolicy: Always
           ports:
             - name: http

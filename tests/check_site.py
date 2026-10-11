@@ -62,6 +62,7 @@ with get("/") as response:
     html = response.read().decode()
     assert response.headers.get("X-Content-Type-Options") == "nosniff"
     assert response.headers.get("X-Frame-Options") == "DENY"
+    assert response.headers.get("Cache-Control") == "no-cache"
 page = Page()
 page.feed(html)
 assert page.language == "en"
@@ -77,6 +78,8 @@ assert "https://www.instagram.com/hgfranco/" in schema["mainEntity"]["sameAs"]
 for asset in page.assets:
     with get(asset) as response:
         assert response.read(), asset
+        if asset.startswith("/styles.css"):
+            assert response.headers.get("Cache-Control") == "no-cache"
 assert 'href="/about/">A little about me' in html
 with get("/about/") as response:
     about_html = response.read().decode()
