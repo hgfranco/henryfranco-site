@@ -52,7 +52,7 @@ h3 a span { font-family: var(--sans); font-size: 17px; display: inline-block; }
 .record { width: 76px; height: 76px; border-radius: 50%; background: repeating-radial-gradient(circle, #333a32 0 3px, #495046 4px 5px); display: grid; place-items: center; margin: 12px auto 0; }
 .record span { width: 29px; height: 29px; border-radius: 50%; background: #b77555; border: 1px solid var(--ink); position: relative; }
 .record span::after { content: ""; width: 5px; height: 5px; position: absolute; top: 11px; left: 11px; border-radius: 50%; background: var(--paper); }
-.terminal-mark { color: var(--green); font-family: monospace; font-size: 48px; line-height: 1.4; margin: 10px auto; transform: rotate(-7deg); }
+.project-laptop { width: 95px; margin: 10px auto; transform: rotate(-5deg); }
 .personal-note { margin: 28px 0 0; border-top: 1px solid var(--line); padding: 48px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0 48px; }
 .personal-note .eyebrow { grid-column: 1 / -1; margin-bottom: 16px; }
 .personal-note h2 { font-size: 30px; }
@@ -83,7 +83,7 @@ footer { padding-top: 22px; color: var(--muted); font-size: 14px; text-align: ce
   .project { grid-template-columns: 1fr; gap: 15px; padding: 26px 0; }
   .project-side { display: flex; align-items: center; gap: 14px; }
   .project-category { margin: 0; }
-  .record, .terminal-mark { display: none; }
+  .record, .project-laptop { display: none; }
   h3 { font-size: 26px; }
   .project-links a, .social-links a { display: inline-block; padding: 8px 0; }
   .personal-note { grid-template-columns: 1fr; gap: 16px; padding: 34px 0; }
