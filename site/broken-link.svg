@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 340">
+  <title>A broken link in a browser window</title>
+  <g fill="none" stroke="#52624b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="49" y="46" width="342" height="239" rx="9" fill="#f1eadb"/>
+    <path d="M58 46h324a9 9 0 0 1 9 9v30H49V55a9 9 0 0 1 9-9Z" fill="#e7ebdc"/>
+    <path d="M49 85h342"/>
+    <circle cx="68" cy="65" r="3" fill="#ba7b59" stroke="none"/>
+    <circle cx="81" cy="65" r="3" fill="#aaa693" stroke="none"/>
+    <circle cx="94" cy="65" r="3" fill="#78806c" stroke="none"/>
+    <rect x="119" y="58" width="249" height="14" rx="7" fill="#f7f3e9" stroke="#aaa693"/>
+    <g transform="rotate(-35 220 174)">
+      <path d="M204 155h-40a20 20 0 0 0 0 40h40v-11h-40a9 9 0 0 1 0-18h40Z" fill="#e7ebdc"/>
+      <path d="M236 155h40a20 20 0 0 1 0 40h-40v-11h40a9 9 0 0 0 0-18h-40Z" fill="#ead8c4"/>
+      <path d="m215 140-3-11m15 12 5-10m-17 79-4 10m16-10 4 10" stroke="#965437"/>
+    </g>
+    <path d="M166 242h108m-83 12h58" stroke="#aaa693"/>
+    <path d="M37 303c108 3 249 2 365-2" stroke="#aaa693"/>
+  </g>
+</svg>

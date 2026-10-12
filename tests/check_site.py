@@ -119,10 +119,23 @@ with get("/sitemap.xml") as response:
     root = ET.fromstring(response.read())
     locations = [item.text for item in root.findall(".//{http://www.sitemaps.org/schemas/sitemap/0.9}loc")]
     assert locations == ["https://henryfranco.com/", "https://henryfranco.com/about/", "https://henryfranco.com/resume/"]
-try:
-    get("/missing-page")
-except urllib.error.HTTPError as error:
-    assert error.code == 404
-else:
-    raise AssertionError("Missing pages must return 404, not the homepage")
+for missing_path in ("/missing-page", "/missing/nested/page/", "/404.html"):
+    try:
+        get(missing_path)
+    except urllib.error.HTTPError as error:
+        assert error.code == 404
+        assert error.headers.get("Content-Type", "").startswith("text/html")
+        assert error.headers.get("Cache-Control") == "no-cache"
+        error_html = error.read().decode()
+        assert "<title>Page not found | Henry Franco</title>" in error_html
+        assert 'name="robots" content="noindex"' in error_html
+        assert 'href="/">Back to home' in error_html
+        error_page = Page()
+        error_page.feed(error_html)
+        assert error_page.h1_count == 1
+        for asset in error_page.assets:
+            with get(asset) as response:
+                assert response.status == 200 and response.read(), asset
+    else:
+        raise AssertionError("Missing pages must return 404, not the homepage")
 print("Website HTTP, metadata, discovery, and asset checks passed.")
