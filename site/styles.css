@@ -97,15 +97,12 @@ h3 a span { font-family: var(--sans); font-size: 17px; display: inline-block; }
 /* About page */
 nav a[aria-current="page"] { color: var(--green); text-decoration: underline; }
 .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
-.about-intro { display: grid; grid-template-columns: 1.3fr 1fr; gap: 64px; align-items: center; padding: 72px 0 56px; }
-.about-intro p { max-width: 530px; color: var(--muted); font-size: 17px; margin: 0 0 22px; }
+.about-intro { max-width: 720px; margin: 0 auto; padding: 72px 0 56px; }
+.about-intro p { max-width: 680px; color: var(--muted); font-size: 17px; margin: 0 0 22px; }
 .about-intro p:last-child { margin-bottom: 0; }
-.about-portrait { margin: 0; max-width: 310px; justify-self: center; }
-.about-portrait img { width: 100%; mix-blend-mode: multiply; }
 .social-icon { width: 18px; height: 18px; flex: none; }
 @media (max-width: 640px) {
-  .about-intro { grid-template-columns: 1fr; gap: 24px; padding: 44px 0 32px; }
-  .about-portrait { max-width: 220px; }
+  .about-intro { padding: 44px 0 32px; }
 }
 
 /* Resume page */
