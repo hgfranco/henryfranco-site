@@ -39,10 +39,6 @@ jobs:
           npx --yes playwright@1.56.1 screenshot --browser chromium --viewport-size "390,844" --full-page http://127.0.0.1:8080/resume/ design-previews/resume-mobile.png
           npx --yes playwright@1.56.1 screenshot --browser chromium --viewport-size "1440,1000" --full-page http://127.0.0.1:8080/missing-page design-previews/404-desktop.png
           npx --yes playwright@1.56.1 screenshot --browser chromium --viewport-size "390,844" --full-page http://127.0.0.1:8080/missing-page design-previews/404-mobile.png
-          npx --yes playwright@1.56.1 screenshot --browser chromium --viewport-size "1440,1000" --full-page http://127.0.0.1:8080/writing/ design-previews/writing-desktop.png
-          npx --yes playwright@1.56.1 screenshot --browser chromium --viewport-size "390,844" --full-page http://127.0.0.1:8080/writing/ design-previews/writing-mobile.png
-          npx --yes playwright@1.56.1 screenshot --browser chromium --viewport-size "1440,1000" --full-page http://127.0.0.1:8080/writing/built-out-of-curiosity/ design-previews/article-desktop.png
-          npx --yes playwright@1.56.1 screenshot --browser chromium --viewport-size "390,844" --full-page http://127.0.0.1:8080/writing/built-out-of-curiosity/ design-previews/article-mobile.png
       - name: Save design previews
         uses: actions/upload-artifact@v4
         with:
