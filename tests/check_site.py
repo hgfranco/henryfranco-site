@@ -163,4 +163,4 @@ for missing_path in ("/missing-page", "/missing/nested/page/", "/404.html"):
 print("Website HTTP, metadata, discovery, and asset checks passed.")
 
 assert '<meta property="og:title" content="henry franco">' in html
-assert "Engineering manager &amp; curious builder" not in html
+assert "Engineering manager &amp; curious builder" in html
