@@ -1,0 +1,12 @@
+Blog topic ideas
+
+1. What Actually Happens When Traffic Enters Kubernetes?
+2. Building a kubeadm Kubernetes Cluster on AWS
+3. Why I Built My Own Cluster Instead of Using EKS
+4. Understanding Kubernetes Services Without Memorizing Definitions
+5. What I Learned Studying for the CKA
+6. Terraform + Ansible + Kubernetes: Where Each Tool Fits
+7. What Happens When `kubectl` Stops Working?
+8. From Engineering Manager Back to the Command Line
+9. How I Built WhatIsHenryListeningTo.com
+10. The Infrastructure Behind henryfranco.com
