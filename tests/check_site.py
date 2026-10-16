@@ -69,7 +69,7 @@ assert page.language == "en"
 assert page.h1_count == 1
 assert page.canonical == "https://henryfranco.com/"
 assert page.description and "Henry Franco" in page.description
-assert "<title>Henry Franco | Engineering Manager</title>" in html
+assert "<title>henry franco</title>" in html
 home_schema = json.loads(page.schema)
 website_schema = next(item for item in home_schema["@graph"] if item["@type"] == "WebSite")
 assert website_schema["name"] == "Henry Franco"
@@ -118,7 +118,29 @@ with get("/robots.txt") as response:
 with get("/sitemap.xml") as response:
     root = ET.fromstring(response.read())
     locations = [item.text for item in root.findall(".//{http://www.sitemaps.org/schemas/sitemap/0.9}loc")]
-    assert locations == ["https://henryfranco.com/", "https://henryfranco.com/about/", "https://henryfranco.com/resume/"]
+    assert locations == ["https://henryfranco.com/", "https://henryfranco.com/about/", "https://henryfranco.com/resume/", "https://henryfranco.com/writing/", "https://henryfranco.com/writing/built-out-of-curiosity/"]
+for path in ("/writing/", "/writing/built-out-of-curiosity/"):
+    with get(path) as response:
+        writing_html = response.read().decode()
+    writing_page = Page()
+    writing_page.feed(writing_html)
+    assert writing_page.h1_count == 1
+    assert writing_page.canonical == "https://henryfranco.com" + path
+    assert writing_page.description
+    assert 'href="/writing/" aria-current="page"' in writing_html
+    assert json.loads(writing_page.schema)["author"]["name"] == "Henry Franco"
+    for asset in writing_page.assets:
+        with get(asset) as response:
+            assert response.read()
+for page_html in (html, about_html, resume_html):
+    assert 'href="/writing/"' in page_html
+for draft in ("/writing/building-kubeadm-aws/", "/writing/kubernetes-traffic/"):
+    try:
+        get(draft)
+    except urllib.error.HTTPError as error:
+        assert error.code == 404
+    else:
+        raise AssertionError("Draft articles must not be published")
 for missing_path in ("/missing-page", "/missing/nested/page/", "/404.html"):
     try:
         get(missing_path)
@@ -139,3 +161,6 @@ for missing_path in ("/missing-page", "/missing/nested/page/", "/404.html"):
     else:
         raise AssertionError("Missing pages must return 404, not the homepage")
 print("Website HTTP, metadata, discovery, and asset checks passed.")
+
+assert '<meta property="og:title" content="henry franco">' in html
+assert "Engineering manager &amp; curious builder" in html
