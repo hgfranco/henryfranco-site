@@ -169,3 +169,18 @@ nav a[aria-current="page"] { color: var(--green); text-decoration: underline; }
   .resume-certifications li { break-inside: avoid; }
   .resume-education { break-inside: avoid; }
 }
+
+.writing-intro {max-width:780px;padding:76px 0 56px}
+.writing-entry {display:grid;grid-template-columns:80px 1fr 100px;gap:28px;border-top:1px solid var(--line);padding:32px 0}
+.writing-entry time {font-size:12px;color:var(--muted);text-align:right}
+.writing-copy p {color:var(--muted);max-width:570px}
+.writing-list {margin-bottom:64px}
+.writing-article {max-width:720px;margin:48px auto 64px}
+.writing-article h1 {font-size:clamp(36px,5vw,54px)}
+.article-body {border-top:1px solid var(--line);padding-top:24px;margin-top:36px}
+.article-body h2 {margin:32px 0 16px}
+.article-body pre {overflow-x:auto;padding:20px;background:#eeeadf}
+.article-body p,.article-body li {color:var(--muted)}
+.article-body blockquote {margin-left:0;padding-left:24px;border-left:2px solid var(--clay)}
+.article-author {border-top:1px solid var(--line);padding-top:24px;margin-top:40px}
+@media(max-width:640px){.writing-intro{padding:46px 0 36px}.writing-entry{grid-template-columns:1fr auto;gap:16px}.writing-copy{grid-column:1/-1;grid-row:2}}
