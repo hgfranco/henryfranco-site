@@ -1,0 +1,19 @@
+name: Release script checks
+on:
+  pull_request:
+    paths:
+      - 'scripts/*.sh'
+      - '.github/workflows/release-script-checks.yml'
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Check Bash syntax
+        run: bash -n scripts/build-image.sh scripts/deploy-image.sh
+      - name: Check shell correctness
+        run: shellcheck scripts/build-image.sh scripts/deploy-image.sh
