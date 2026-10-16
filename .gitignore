@@ -3,3 +3,6 @@
 .env.*
 *.pem
 *.key
+
+# Local image release reference
+.release/
