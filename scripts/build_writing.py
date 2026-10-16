@@ -46,10 +46,10 @@ def page(title, description, path, body, kind="website"):
     return f'''<!doctype html>
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{esc(title)} | Henry Franco</title>
+<title>{esc(title)} | henry franco</title>
 <meta name="description" content="{esc(description, quote=True)}">
 <link rel="canonical" href="{url}">
-<meta property="og:title" content="{esc(title, quote=True)} | Henry Franco">
+<meta property="og:title" content="{esc(title, quote=True)} | henry franco">
 <meta property="og:description" content="{esc(description, quote=True)}">
 <meta property="og:type" content="{kind}"><meta property="og:url" content="{url}">
 <meta name="twitter:card" content="summary"><meta name="theme-color" content="#f7f3e9">
@@ -72,7 +72,7 @@ for index, post in enumerate(posts, 1):
 <header><p class="eyebrow">{tags} · <time datetime="{day.isoformat()}">{day.strftime("%B %Y")}</time></p>
 <h1>{title}</h1><p class="intro-text">{description}</p></header>
 <div class="article-body">{markdown.markdown(post["body"], extensions=["fenced_code", "tables"])}</div>
-<footer class="article-author">Henry Franco<br><span class="section-note">Engineering Manager &amp; curious builder</span></footer></article>'''
+<footer class="article-author">Henry Franco<br><span class="section-note">Curious builder</span></footer></article>'''
     directory = OUT / post["slug"]
     directory.mkdir(exist_ok=True)
     (directory / "index.html").write_text(page(post["title"], post["description"], path, article, "article"))

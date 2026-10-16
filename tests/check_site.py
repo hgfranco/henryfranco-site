@@ -69,7 +69,7 @@ assert page.language == "en"
 assert page.h1_count == 1
 assert page.canonical == "https://henryfranco.com/"
 assert page.description and "Henry Franco" in page.description
-assert "<title>Henry Franco | Engineering Manager</title>" in html
+assert "<title>henry franco</title>" in html
 home_schema = json.loads(page.schema)
 website_schema = next(item for item in home_schema["@graph"] if item["@type"] == "WebSite")
 assert website_schema["name"] == "Henry Franco"
@@ -161,3 +161,6 @@ for missing_path in ("/missing-page", "/missing/nested/page/", "/404.html"):
     else:
         raise AssertionError("Missing pages must return 404, not the homepage")
 print("Website HTTP, metadata, discovery, and asset checks passed.")
+
+assert '<meta property="og:title" content="henry franco">' in html
+assert "Engineering manager &amp; curious builder" not in html
